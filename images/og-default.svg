@@ -1,0 +1,72 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020617"/>
+      <stop offset="50%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Grid pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#f59e0b" stroke-width="1" repeat="20"/>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#f59e0b" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+  </g>
+  <!-- Glow -->
+  <circle cx="900" cy="200" r="300" fill="#f59e0b" opacity="0.06"/>
+  <circle cx="200" cy="500" r="250" fill="#0ea5e9" opacity="0.04"/>
+  <!-- Sun icon -->
+  <g transform="translate(900, 280)">
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.15"/>
+    <circle cx="0" cy="0" r="120" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.1"/>
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.05"/>
+    <circle cx="0" cy="0" r="40" fill="url(#gold)" opacity="0.8"/>
+    <g fill="none" stroke="#020617" stroke-width="2.5" stroke-linecap="round">
+      <circle cx="0" cy="0" r="14"/>
+      <line x1="0" y1="-22" x2="0" y2="-28"/>
+      <line x1="0" y1="22" x2="0" y2="28"/>
+      <line x1="-22" y1="0" x2="-28" y2="0"/>
+      <line x1="22" y1="0" x2="28" y2="0"/>
+      <line x1="-16" y1="-16" x2="-20" y2="-20"/>
+      <line x1="16" y1="-16" x2="20" y2="-20"/>
+      <line x1="-16" y1="16" x2="-20" y2="20"/>
+      <line x1="16" y1="16" x2="20" y2="20"/>
+    </g>
+  </g>
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#gold)"/>
+  <!-- Badge -->
+  <rect x="80" y="140" width="220" height="36" rx="18" fill="url(#badge)" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
+  <circle cx="100" cy="158" r="5" fill="#10b981"/>
+  <text x="115" y="164" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">CEC APPROVED RETAILER</text>
+  <!-- Logo -->
+  <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800">
+    <tspan fill="url(#gold)">Solar</tspan><tspan fill="#ffffff" font-weight="300">Yoot</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="80" y="300" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Premium Solar Solutions</text>
+  <text x="80" y="345" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="20">Brisbane &amp; Sunshine Coast | Save up to 70% on Electricity</text>
+  <!-- Stats bar -->
+  <line x1="80" y1="400" x2="700" y2="400" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="80" y="450" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800">5+</text>
+  <text x="80" y="475" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" letter-spacing="1">YEARS EXP</text>
+  <text x="230" y="450" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800">400+</text>
+  <text x="230" y="475" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" letter-spacing="1">PROJECTS</text>
+  <text x="410" y="450" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800">10+</text>
+  <text x="410" y="475" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" letter-spacing="1">PARTNERS</text>
+  <!-- Phone -->
+  <text x="80" y="560" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="18">1300 462 123 | info@solaryoot.com.au</text>
+  <!-- Bottom accent -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#gold)"/>
+</svg>
