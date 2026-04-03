@@ -21,7 +21,12 @@
 
 /* Base Reset & Smooth Scroll */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
+}
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -29,6 +34,8 @@ body {
   color: #e2e8f0;
   line-height: 1.7;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Selection */
@@ -165,6 +172,7 @@ body {
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, var(--solar-darker) 0%, #0c1220 50%, #111827 100%);
+  max-width: 100vw;
 }
 
 .hero-bg-grid {
@@ -419,7 +427,7 @@ body {
 /* ============================================
    Section Common Styles
    ============================================ */
-.section { padding: 6rem 0; position: relative; }
+.section { padding: 6rem 0; position: relative; overflow: hidden; }
 
 .section-container {
   max-width: 1280px;
@@ -630,6 +638,7 @@ body {
   background: linear-gradient(135deg, var(--solar-dark) 0%, var(--solar-darker) 100%);
   position: relative;
   overflow: hidden;
+  max-width: 100vw;
 }
 
 .about-bg {
@@ -1234,6 +1243,7 @@ body {
   background: var(--solar-darker);
   border-top: 1px solid var(--glass-border);
   padding: 4rem 0 2rem;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
 }
 
 .footer-grid {
@@ -1857,6 +1867,7 @@ body {
   padding: 120px 2rem 60px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f3460 100%);
   overflow: hidden;
+  max-width: 100vw;
 }
 
 .page-hero::before {
@@ -2047,6 +2058,8 @@ body {
 .comparison-table {
   margin: 1.5rem 0;
   overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .comparison-table table {
