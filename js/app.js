@@ -8,23 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Navbar Scroll Effect ----
   const navbar = document.querySelector('.navbar');
-  let lastScroll = 0;
 
   const handleScroll = () => {
-    const currentScroll = window.scrollY;
-    navbar.classList.toggle('scrolled', currentScroll > 50);
-
-    // Auto-hide navbar on scroll down (mobile), show on scroll up
-    if (isMobile && currentScroll > 300) {
-      if (currentScroll > lastScroll + 10) {
-        navbar.style.transform = 'translateY(-100%)';
-      } else if (currentScroll < lastScroll - 5) {
-        navbar.style.transform = 'translateY(0)';
-      }
-    } else {
-      navbar.style.transform = 'translateY(0)';
-    }
-    lastScroll = currentScroll;
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
   };
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
@@ -32,22 +18,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Mobile Navigation ----
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
+  let menuOpen = false;
+
+  function openMenu() {
+    menuOpen = true;
+    navLinks.classList.add('active');
+    mobileToggle.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    navLinks.classList.remove('active');
+    mobileToggle.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-      // Always show navbar when menu is open
-      navbar.style.transform = 'translateY(0)';
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (menuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
+    // Close menu when any link is tapped
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
     });
   }
 
