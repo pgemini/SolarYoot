@@ -64,9 +64,13 @@ img, video, iframe {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000;
   padding: 1rem 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
 }
 
@@ -1009,6 +1013,7 @@ img, video, iframe {
   background: var(--solar-gold);
   filter: blur(150px);
   opacity: 0.05;
+  max-width: 100vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1054,6 +1059,8 @@ img, video, iframe {
   font-family: inherit;
   transition: border-color 0.3s, box-shadow 0.3s;
   outline: none;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .form-group input:focus,
@@ -1432,7 +1439,7 @@ img, video, iframe {
     justify-content: center;
     align-items: center;
     gap: 0;
-    z-index: 9998;
+    z-index: 10001;
     padding: 5rem 2rem 2rem;
     overflow-y: auto;
     /* Hidden by default - use opacity/visibility for instant toggle */
@@ -1480,12 +1487,12 @@ img, video, iframe {
 
   .mobile-toggle {
     display: flex;
-    z-index: 9999;
+    z-index: 10002;
     position: relative;
   }
 
   .navbar {
-    z-index: 9997;
+    z-index: 10000;
     transform: none !important;
   }
 }
@@ -1561,13 +1568,21 @@ img, video, iframe {
   .partners { padding: 3rem 0; }
   .partners-track {
     gap: 0.75rem;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1.25rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
+  .partners-track::-webkit-scrollbar { display: none; }
   .partner-logo {
     min-width: auto;
     padding: 0.75rem 1.25rem;
     border-radius: 10px;
     flex: 0 0 auto;
+    scroll-snap-align: start;
   }
   .partner-logo span { font-size: 0.9rem; }
 
@@ -1739,7 +1754,8 @@ img, video, iframe {
     gap: 2rem;
     text-align: center;
   }
-  .footer-brand p { font-size: 0.85rem; }
+  .footer-brand p { font-size: 0.85rem; max-width: none; margin-left: auto; margin-right: auto; }
+  .footer-links { align-items: center; }
   .footer-links li { font-size: 0.85rem; }
   .footer h4 { font-size: 1rem; margin-bottom: 0.75rem; }
   .footer-bottom {
@@ -2084,6 +2100,7 @@ img, video, iframe {
 
 .comparison-table table {
   width: 100%;
+  min-width: 480px;
   border-collapse: collapse;
   background: var(--glass-bg);
   border-radius: 12px;
@@ -2466,4 +2483,257 @@ a.service-card:hover .service-link {
 
 .gallery-item .gallery-overlay {
   z-index: 2;
+}
+
+/* ============================================
+   Premium Solar Animations
+   ============================================ */
+
+/* 1. Sun Ray Animation - Hero Badge Pulsing Glow */
+.hero-badge {
+  animation: sunRayPulse 3s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+@keyframes sunRayPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0), 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+  50% {
+    box-shadow: 0 0 15px 0 rgba(245, 158, 11, 0.15), 0 0 30px 0 rgba(245, 158, 11, 0.05);
+  }
+}
+
+/* 2. Gradient Text Animation - Slow Color Shift */
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, var(--solar-gold), var(--solar-orange), var(--solar-gold-light), var(--solar-gold));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 3. Counter Number Glow - Gold Glow on Animated Stats */
+.stat-number {
+  transition: text-shadow 0.6s ease;
+}
+
+.stat-card.visible .stat-number,
+.reveal-scale.visible .stat-number {
+  animation: counterGlow 2s ease-out forwards;
+}
+
+@keyframes counterGlow {
+  0% { text-shadow: none; }
+  30% { text-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.3); }
+  100% { text-shadow: 0 0 8px rgba(245, 158, 11, 0.15); }
+}
+
+/* 4. Card Hover Shimmer - Service Card Top Border */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--solar-gold) 20%,
+    var(--solar-gold-light) 40%,
+    #fff 50%,
+    var(--solar-gold-light) 60%,
+    var(--solar-gold) 80%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+  animation: borderShimmer 1.5s linear infinite;
+}
+
+@keyframes borderShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 5. Floating Solar Panel Icon - Approved Seller Badge */
+.approved-seller-badge .badge-icon {
+  animation: gentleFloat 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 6. Typing Effect on Hero Subtitle (CSS Only) */
+.hero-description {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(148, 163, 184, 0.6);
+  width: 0;
+  animation:
+    typeWriter 3s steps(80, end) 0.5s forwards,
+    blinkCaret 0.75s step-end 8,
+    hideCaret 0s 6.5s forwards;
+}
+
+@keyframes typeWriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkCaret {
+  0%, 100% { border-right-color: rgba(148, 163, 184, 0.6); }
+  50% { border-right-color: transparent; }
+}
+
+@keyframes hideCaret {
+  to { border-right-color: transparent; }
+}
+
+/* 7. Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--solar-gold), var(--solar-orange), var(--solar-gold-light));
+  z-index: 10000;
+  transition: none;
+  will-change: width;
+  pointer-events: none;
+}
+
+/* 8. Partner Logos Marquee Animation */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.partners-track.marquee-active {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 0;
+  justify-content: flex-start;
+  animation: marqueeScroll 30s linear infinite;
+  will-change: transform;
+  width: max-content;
+}
+
+.partners-track.marquee-active:hover {
+  animation-play-state: paused;
+}
+
+.partners-track.marquee-active .partner-logo {
+  flex-shrink: 0;
+  margin: 0 1.5rem;
+}
+
+/* 9. Section Entrance - Gold Left Border Line */
+.section.section-in-view {
+  position: relative;
+}
+
+.section.section-in-view::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(180deg, var(--solar-gold), var(--solar-orange), transparent);
+  animation: goldLineGrow 0.8s ease-out forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes goldLineGrow {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+/* 10. Button Ripple Effect */
+.btn-primary,
+.btn-secondary,
+.btn-submit,
+.nav-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: rippleExpand 0.6s ease-out forwards;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   Reduced Motion - Disable Premium Animations
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge { animation: none; box-shadow: none; }
+  .hero h1 .gradient-text { animation: none; }
+  .stat-card.visible .stat-number,
+  .reveal-scale.visible .stat-number { animation: none; }
+  .service-card:hover::before { animation: none; }
+  .approved-seller-badge .badge-icon { animation: none; }
+  .hero-description {
+    animation: none;
+    width: 100%;
+    white-space: normal;
+    overflow: visible;
+    border-right: none;
+  }
+  .scroll-progress { display: none; }
+  .partners-track.marquee-active { animation: none; }
+  .section.section-in-view::after { animation: none; height: 100%; }
+  .ripple-effect { display: none; }
+}
+
+/* Typing effect: restore wrapping on mobile for readability */
+@media (max-width: 768px) {
+  .hero-description {
+    white-space: normal;
+    overflow: visible;
+    border-right: none;
+    width: 0;
+    animation: typeWriterMobile 2s steps(60, end) 0.5s forwards;
+  }
+}
+
+@keyframes typeWriterMobile {
+  from { width: 0; }
+  to { width: 100%; }
 }
