@@ -296,7 +296,7 @@ img, video, iframe {
   color: #fff;
 }
 
-.hero h1 .gradient-text {
+.gradient-text {
   background: linear-gradient(135deg, var(--solar-gold), var(--solar-orange), var(--solar-gold-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1377,6 +1377,34 @@ img, video, iframe {
   transform: scale(1);
 }
 
+/* Fallback: show content after 3s even if JS fails to fire IntersectionObserver */
+@supports (animation: none) {
+  .reveal:not(.visible) {
+    animation: revealFallback 0s 3s forwards;
+  }
+  .reveal-left:not(.visible) {
+    animation: revealLeftFallback 0s 3s forwards;
+  }
+  .reveal-right:not(.visible) {
+    animation: revealRightFallback 0s 3s forwards;
+  }
+  .reveal-scale:not(.visible) {
+    animation: revealScaleFallback 0s 0.5s forwards;
+  }
+  @keyframes revealFallback {
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes revealLeftFallback {
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes revealRightFallback {
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes revealScaleFallback {
+    to { opacity: 1; transform: none; }
+  }
+}
+
 /* Floating animation for badges/icons */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -1852,6 +1880,13 @@ img, video, iframe {
   .hero-badge .pulse-dot { animation: none; }
   html { scroll-behavior: auto; }
 }
+
+/* Fallback: reveal content after 4s even if JS/IntersectionObserver fails */
+.reveal:not(.visible) { animation: revealFallback 0s 4s forwards; }
+.reveal-left:not(.visible) { animation: revealFallback 0s 4s forwards; }
+.reveal-right:not(.visible) { animation: revealFallback 0s 4s forwards; }
+.reveal-scale:not(.visible) { animation: revealFallback 0s 4s forwards; }
+@keyframes revealFallback { to { opacity: 1; transform: none; } }
 
 /* Form Success State */
 .form-success {
@@ -2349,7 +2384,7 @@ img, video, iframe {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 10003;
   background: rgba(0,0,0,0.95);
   align-items: center;
   justify-content: center;
@@ -2505,7 +2540,7 @@ a.service-card:hover .service-link {
 }
 
 /* 2. Gradient Text Animation - Slow Color Shift */
-.hero h1 .gradient-text {
+.gradient-text {
   background: linear-gradient(135deg, var(--solar-gold), var(--solar-orange), var(--solar-gold-light), var(--solar-gold));
   background-size: 300% 300%;
   -webkit-background-clip: text;
@@ -2532,7 +2567,7 @@ a.service-card:hover .service-link {
 @keyframes counterGlow {
   0% { text-shadow: none; }
   30% { text-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.3); }
-  100% { text-shadow: 0 0 8px rgba(245, 158, 11, 0.15); }
+  100% { text-shadow: none; }
 }
 
 /* 4. Card Hover Shimmer - Service Card Top Border */
@@ -2598,7 +2633,7 @@ a.service-card:hover .service-link {
   width: 0%;
   height: 3px;
   background: linear-gradient(90deg, var(--solar-gold), var(--solar-orange), var(--solar-gold-light));
-  z-index: 10000;
+  z-index: 9999;
   transition: none;
   will-change: width;
   pointer-events: none;
@@ -2688,9 +2723,9 @@ a.service-card:hover .service-link {
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero-badge { animation: none; box-shadow: none; }
-  .hero h1 .gradient-text { animation: none; }
+  .gradient-text { animation: none; }
   .stat-card.visible .stat-number,
-  .reveal-scale.visible .stat-number { animation: none; }
+  .reveal-scale.visible .stat-number { animation: none; text-shadow: none; }
   .service-card:hover::before { animation: none; }
   .approved-seller-badge .badge-icon { animation: none; }
   .hero-description {
@@ -2704,6 +2739,15 @@ a.service-card:hover .service-link {
   .partners-track.marquee-active { animation: none; }
   .section.section-in-view::after { animation: none; height: 100%; }
   .ripple-effect { display: none; }
+  .btn-primary:active { animation: none; }
+  .stat-number { transition: none; }
+  /* Ensure reveal fallbacks are also disabled */
+  .reveal:not(.visible),
+  .reveal-left:not(.visible),
+  .reveal-right:not(.visible),
+  .reveal-scale:not(.visible) {
+    animation: none;
+  }
 }
 
 /* Hero description mobile */

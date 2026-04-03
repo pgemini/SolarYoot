@@ -302,8 +302,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (partnersTrack && !isMobile) {
     const logos = Array.from(partnersTrack.querySelectorAll('.partner-logo'));
     if (logos.length > 0) {
-      // Clone logos to create seamless loop
-      logos.forEach(logo => {
+      // Ensure we have enough logos to fill the viewport before cloning.
+      // If fewer than 6 logos, duplicate them first so the set is wide enough.
+      const minLogos = 6;
+      let currentLogos = logos;
+      while (currentLogos.length < minLogos) {
+        currentLogos.forEach(logo => {
+          const extra = logo.cloneNode(true);
+          partnersTrack.appendChild(extra);
+        });
+        currentLogos = Array.from(partnersTrack.querySelectorAll('.partner-logo'));
+      }
+      // Now clone the full set once for seamless -50% translateX loop
+      const allLogos = Array.from(partnersTrack.querySelectorAll('.partner-logo'));
+      allLogos.forEach(logo => {
         const clone = logo.cloneNode(true);
         partnersTrack.appendChild(clone);
       });
