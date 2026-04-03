@@ -1910,7 +1910,7 @@ img, video, iframe {
 .page-hero-overlay {
   position: absolute;
   inset: 0;
-  background: url('../images/page-hero-bg.jpg') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80') center/cover no-repeat;
   opacity: 0.15;
 }
 
@@ -2736,4 +2736,12 @@ a.service-card:hover .service-link {
 @keyframes typeWriterMobile {
   from { width: 0; }
   to { width: 100%; }
+}
+
+/* Solar Video Section Responsive */
+@media (max-width: 768px) {
+  .solar-video [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
