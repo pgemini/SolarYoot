@@ -204,12 +204,24 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      setTimeout(() => {
-        form.style.display = 'none';
-        formSuccess.classList.add('active');
-        // Scroll to success message on mobile
-        if (isMobile) formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1500);
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          formSuccess.classList.add('active');
+          // Scroll to success message on mobile
+          if (isMobile) formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          btn.textContent = 'Error - Try Again';
+          btn.disabled = false;
+        }
+      }).catch(() => {
+        btn.textContent = 'Error - Try Again';
+        btn.disabled = false;
+      });
     });
   }
 
