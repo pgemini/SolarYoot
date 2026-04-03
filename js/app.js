@@ -204,12 +204,24 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      setTimeout(() => {
-        form.style.display = 'none';
-        formSuccess.classList.add('active');
-        // Scroll to success message on mobile
-        if (isMobile) formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 1500);
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          formSuccess.classList.add('active');
+          // Scroll to success message on mobile
+          if (isMobile) formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          btn.textContent = 'Error - Try Again';
+          btn.disabled = false;
+        }
+      }).catch(() => {
+        btn.textContent = 'Error - Try Again';
+        btn.disabled = false;
+      });
     });
   }
 
@@ -270,6 +282,69 @@ document.addEventListener('DOMContentLoaded', () => {
       logo.style.flexShrink = '0';
     });
   }
+
+  // ---- 7. Scroll Progress Indicator ----
+  const scrollProgress = document.createElement('div');
+  scrollProgress.classList.add('scroll-progress');
+  document.body.appendChild(scrollProgress);
+
+  const updateScrollProgress = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = scrollPercent + '%';
+  };
+
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  // ---- 8. Partner Logos Marquee (desktop only) ----
+  if (partnersTrack && !isMobile) {
+    const logos = Array.from(partnersTrack.querySelectorAll('.partner-logo'));
+    if (logos.length > 0) {
+      // Clone logos to create seamless loop
+      logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        partnersTrack.appendChild(clone);
+      });
+      partnersTrack.classList.add('marquee-active');
+    }
+  }
+
+  // ---- 9. Section Entrance - Gold Left Border ----
+  const sections = document.querySelectorAll('.section');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-in-view');
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => sectionObserver.observe(section));
+
+  // ---- 10. Button Ripple Effect ----
+  const rippleButtons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-submit, .nav-cta');
+
+  rippleButtons.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple-effect');
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+
+      this.appendChild(ripple);
+
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
 
 });
 
