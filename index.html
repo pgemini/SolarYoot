@@ -25,6 +25,7 @@
 <meta name="twitter:title" content="SolarYoot | Solar Panel Installation Brisbane &amp; Sunshine Coast">
 <meta name="twitter:description" content="Brisbane's trusted solar installer. CEC accredited. Premium Tier-1 solar panels, battery storage &amp; EV chargers. Free solar quote.">
 <meta name="twitter:image" content="https://pgemini.github.io/SolarYoot/images/og-default.svg">
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -129,12 +130,13 @@
 </nav>
 
 <!-- Hero Section -->
-<section id="hero" class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
-  <div class="hero-particles"></div>
-  <div class="hero-container">
+<section id="hero" class="hero" style="background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80') center/cover no-repeat;">
+  <div class="hero-bg-overlay" style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(10,10,20,0.85) 0%, rgba(15,30,60,0.75) 50%, rgba(10,10,20,0.85) 100%); z-index:1;"></div>
+  <div class="hero-bg-grid" style="z-index:2;"></div>
+  <div class="hero-glow hero-glow-1" style="z-index:2;"></div>
+  <div class="hero-glow hero-glow-2" style="z-index:2;"></div>
+  <div class="hero-particles" style="z-index:2;"></div>
+  <div class="hero-container" style="position:relative; z-index:3;">
     <div class="hero-content">
       <div class="hero-badge"><span class="pulse-dot"></span> CEC Approved Solar Retailer</div>
       <h1>Power Your Future With <span class="gradient-text">Solar Energy</span></h1>
@@ -151,8 +153,8 @@
       </div>
       <div class="hero-stats-bar">
         <div class="hero-stat"><h3>5+</h3><p>Years Experience</p></div>
-        <div class="hero-stat"><h3>400+</h3><p>Projects Done</p></div>
-        <div class="hero-stat"><h3>10+</h3><p>Brand Partners</p></div>
+        <div class="hero-stat"><h3>500+</h3><p>Projects Done</p></div>
+        <div class="hero-stat"><h3>15+</h3><p>Brand Partners</p></div>
       </div>
     </div>
     <div class="hero-visual">
@@ -163,6 +165,30 @@
         <div class="sun-core">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof Bar -->
+<section class="social-proof-bar" style="padding:2rem 0;background:linear-gradient(135deg,rgba(15,15,20,0.95),rgba(20,20,30,0.95));border-top:1px solid rgba(212,175,55,0.15);border-bottom:1px solid rgba(212,175,55,0.15);">
+  <div class="section-container">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2rem 3rem;text-align:center;">
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#d4af37" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="#d4af37" stroke-width="2"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#d4af37" stroke-width="2"/></svg>
+        <span style="color:#fff;font-size:1.05rem;font-weight:600;">Trusted by <span style="color:#d4af37;">500+</span> Queensland Homeowners</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <span style="color:#d4af37;font-size:1.3rem;letter-spacing:-1px;">&starf;&starf;&starf;&starf;&starf;</span>
+        <span style="color:#fff;font-size:1.05rem;font-weight:600;"><span style="color:#d4af37;">4.9/5</span> Average Rating</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span style="color:#fff;font-size:1.05rem;font-weight:600;">Google Reviews Verified</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#d4af37" stroke-width="2" fill="none"/><path d="M9 12l2 2 4-4" stroke="#d4af37" stroke-width="2" fill="none"/></svg>
+        <span style="color:#fff;font-size:1.05rem;font-weight:600;">CEC Accredited &amp; Insured</span>
       </div>
     </div>
   </div>
@@ -267,15 +293,15 @@
 </section>
 
 <!-- About Section -->
-<section id="about" class="about section">
-  <div class="about-bg"></div>
+<section id="about" class="about section" style="position:relative; background: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&q=80') center/cover no-repeat fixed;">
+  <div class="about-bg" style="background: linear-gradient(135deg, rgba(10,10,20,0.92) 0%, rgba(15,20,40,0.88) 50%, rgba(10,10,20,0.92) 100%);"></div>
   <div class="section-container">
     <div class="about-grid">
       <div class="about-content reveal">
         <span class="section-label">Who We Are</span>
         <h2 class="section-title">About SolarYoot</h2>
         <p class="about-text">SolarYoot is a leading provider of solar energy solutions in Brisbane, Sunshine Coast, and across Queensland. We are committed to delivering high-quality, reliable solar systems that cater to the unique needs of our customers. As CEC accredited installers and New Energy Tech Approved Sellers, we uphold the highest industry standards.</p>
-        <p class="about-text">Our goal is to empower individuals and businesses to make the switch to solar energy and contribute to a sustainable future. With over 5 years of experience and 400+ completed installations, we have the expertise to guide you through every step of the solar journey&mdash;from initial consultation to ongoing maintenance and support.</p>
+        <p class="about-text">Our goal is to empower individuals and businesses to make the switch to solar energy and contribute to a sustainable future. With over 5 years of experience and 500+ completed installations, we have the expertise to guide you through every step of the solar journey&mdash;from initial consultation to ongoing maintenance and support.</p>
         <ul class="about-features">
           <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> CEC Accredited Installer</li>
           <li><svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> New Energy Tech Approved Seller</li>
@@ -290,16 +316,16 @@
           <div class="stat-label">Years of Experience</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-count="400" data-suffix="+">0</div>
+          <div class="stat-number" data-count="500" data-suffix="+">0</div>
           <div class="stat-label">Solar Projects Completed</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-count="400" data-suffix="+">0</div>
-          <div class="stat-label">Satisfied Customers</div>
+          <div class="stat-number" data-count="500" data-suffix="+">0</div>
+          <div class="stat-label">Happy Customers</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-count="10" data-suffix="+">0</div>
-          <div class="stat-label">Industry Partners</div>
+          <div class="stat-number" data-count="15" data-suffix="+">0</div>
+          <div class="stat-label">Brand Partners</div>
         </div>
       </div>
     </div>
@@ -486,7 +512,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item featured reveal">
-        <img src="images/project-waterfront-home.jpg" alt="Solar panel installation on waterfront home in Queensland with canal views" loading="lazy" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80" alt="Solar panels installed on residential rooftop in Brisbane suburb with blue sky" loading="lazy">
         <div class="gallery-placeholder"></div>
         <div class="gallery-overlay">
           <h4>Waterfront Home - Sunshine Coast</h4>
@@ -494,7 +520,7 @@
         </div>
       </div>
       <div class="gallery-item reveal reveal-delay-1">
-        <img src="images/project-suburban-home.jpg" alt="Residential solar panels installed on Brisbane suburban home dark tile roof" loading="lazy" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80" alt="Large-scale solar farm with rows of photovoltaic panels generating clean energy in Queensland" loading="lazy">
         <div class="gallery-placeholder"></div>
         <div class="gallery-overlay">
           <h4>Suburban Residence - Brisbane</h4>
@@ -502,7 +528,7 @@
         </div>
       </div>
       <div class="gallery-item reveal reveal-delay-2">
-        <img src="images/project-pool-home.jpg" alt="Aerial view of solar panels on large home with pool in Brisbane" loading="lazy" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=800&q=80" alt="Professional solar panel installation in progress on Australian home rooftop" loading="lazy">
         <div class="gallery-placeholder"></div>
         <div class="gallery-overlay">
           <h4>Family Home with Pool - Brisbane</h4>
@@ -510,7 +536,7 @@
         </div>
       </div>
       <div class="gallery-item reveal reveal-delay-1">
-        <img src="images/project-commercial.jpg" alt="Commercial solar installation on warehouse roof Queensland" loading="lazy" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&q=80" alt="Close-up view of high-efficiency solar panel cells reflecting sunlight" loading="lazy">
         <div class="gallery-placeholder"></div>
         <div class="gallery-overlay">
           <h4>Commercial Warehouse - Birtinya</h4>
@@ -518,7 +544,7 @@
         </div>
       </div>
       <div class="gallery-item reveal reveal-delay-2">
-        <img src="images/project-modern-home.jpg" alt="Modern home solar panel installation Brisbane northside" loading="lazy" onerror="this.style.display='none'">
+        <img src="https://images.unsplash.com/photo-1595437193398-f24279553f4f?w=800&q=80" alt="Modern Australian home with rooftop solar panel system and clear sky" loading="lazy">
         <div class="gallery-placeholder"></div>
         <div class="gallery-overlay">
           <h4>Modern Home - North Brisbane</h4>
@@ -647,6 +673,46 @@
             <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
           </a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solar Education Video Section -->
+<section class="solar-video section" style="position:relative; background: url('https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=1920&q=80') center/cover no-repeat fixed;">
+  <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(10,10,20,0.93) 0%, rgba(15,20,40,0.90) 50%, rgba(10,10,20,0.93) 100%);"></div>
+  <div class="section-container" style="position:relative; z-index:2;">
+    <div class="section-header reveal">
+      <span class="section-label">Learn About Solar</span>
+      <h2 class="section-title">How Solar Energy Works</h2>
+      <p class="section-subtitle">Understanding solar technology helps you make an informed decision about your energy future</p>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto;">
+      <div class="reveal" style="position:relative; width:100%; padding-bottom:56.25%; border-radius:16px; overflow:hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+        <iframe src="https://www.youtube.com/embed/xKxrkht7CpY" title="How Solar Panels Work - Solar Energy Explained" style="position:absolute; inset:0; width:100%; height:100%; border:0;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="reveal" style="color: #e2e8f0;">
+        <h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Solar Power Made Simple</h3>
+        <p style="margin-bottom: 1rem; line-height: 1.7; color: #94a3b8;">Solar panels convert sunlight into electricity using photovoltaic cells. When sunlight hits these cells, it creates an electrical current that powers your home and reduces your reliance on the grid.</p>
+        <p style="margin-bottom: 1.5rem; line-height: 1.7; color: #94a3b8;">Brisbane receives over 280 days of sunshine per year, making it one of the best locations in Australia for solar energy. A well-designed solar system can generate enough electricity to cover 80-100% of your household energy needs.</p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:#e2e8f0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+            Clean, renewable energy source
+          </li>
+          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:#e2e8f0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+            25+ year panel lifespan
+          </li>
+          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:#e2e8f0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+            Pays for itself in 3-5 years
+          </li>
+          <li style="display:flex; align-items:center; gap:0.75rem; color:#e2e8f0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+            Increases property value
+          </li>
+        </ul>
       </div>
     </div>
   </div>
