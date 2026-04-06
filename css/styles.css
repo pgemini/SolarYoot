@@ -1983,25 +1983,25 @@ img, video, iframe {
 .page-hero-content h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 800;
-  color: var(--text-primary);
+  color: #ffffff;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .page-hero-content p {
   font-size: 1.15rem;
-  color: var(--text-muted);
+  color: #cbd5e1;
   max-width: 600px;
   margin: 0 auto 1.5rem;
 }
 
 .breadcrumb {
   font-size: 0.9rem;
-  color: var(--text-faint);
+  color: #94a3b8;
 }
 
 .breadcrumb a {
-  color: var(--text-muted);
+  color: #cbd5e1;
   text-decoration: none;
   transition: color 0.3s;
 }
