@@ -552,11 +552,11 @@
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 2.5rem;margin-top:1.5rem;">
         <div style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);border-radius:8px;">
           <span style="display:inline-block;width:10px;height:10px;background:#10b981;border-radius:50%;animation:pulse 2s infinite;"></span>
-          <span style="color:#fff;font-size:0.95rem;">Last installation completed: <strong style="color:#d4af37;">2 days ago</strong></span>
+          <span style="color:var(--text-primary);font-size:0.95rem;">Last installation completed: <strong style="color:#d4af37;">2 days ago</strong></span>
         </div>
         <div style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);border-radius:8px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" style="flex-shrink:0;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span style="color:#fff;font-size:0.95rem;">Next available slot: <strong style="color:#d4af37;">This week</strong></span>
+          <span style="color:var(--text-primary);font-size:0.95rem;">Next available slot: <strong style="color:#d4af37;">This week</strong></span>
         </div>
       </div>
     </div>
@@ -729,36 +729,35 @@
 </section>
 
 <!-- Solar Education Video Section -->
-<section class="solar-video section" style="position:relative; background: url('https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=1920&q=80') center/cover no-repeat fixed;">
-  <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(10,10,20,0.93) 0%, rgba(15,20,40,0.90) 50%, rgba(10,10,20,0.93) 100%);"></div>
-  <div class="section-container" style="position:relative; z-index:2;">
+<section class="solar-video section" style="background:var(--bg-secondary);">
+  <div class="section-container">
     <div class="section-header reveal">
       <span class="section-label">Learn About Solar</span>
       <h2 class="section-title">How Solar Energy Works</h2>
       <p class="section-subtitle">Understanding solar technology helps you make an informed decision about your energy future</p>
     </div>
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto;">
-      <div class="reveal" style="position:relative; width:100%; padding-bottom:56.25%; border-radius:16px; overflow:hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      <div class="reveal" style="position:relative; width:100%; padding-bottom:56.25%; border-radius:16px; overflow:hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.1);">
         <iframe src="https://www.youtube.com/embed/xKxrkht7CpY" title="How Solar Panels Work - Solar Energy Explained" style="position:absolute; inset:0; width:100%; height:100%; border:0;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <div class="reveal" style="color: #e2e8f0;">
-        <h3 style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Solar Power Made Simple</h3>
-        <p style="margin-bottom: 1rem; line-height: 1.7; color: #94a3b8;">Solar panels convert sunlight into electricity using photovoltaic cells. When sunlight hits these cells, it creates an electrical current that powers your home and reduces your reliance on the grid.</p>
-        <p style="margin-bottom: 1.5rem; line-height: 1.7; color: #94a3b8;">Brisbane receives over 280 days of sunshine per year, making it one of the best locations in Australia for solar energy. A well-designed solar system can generate enough electricity to cover 80-100% of your household energy needs.</p>
+      <div class="reveal" style="color: var(--text-body);">
+        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Solar Power Made Simple</h3>
+        <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-muted);">Solar panels convert sunlight into electricity using photovoltaic cells. When sunlight hits these cells, it creates an electrical current that powers your home and reduces your reliance on the grid.</p>
+        <p style="margin-bottom: 1.5rem; line-height: 1.7; color: var(--text-muted);">Brisbane receives over 280 days of sunshine per year, making it one of the best locations in Australia for solar energy. A well-designed solar system can generate enough electricity to cover 80-100% of your household energy needs.</p>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:#e2e8f0;">
+          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:var(--text-body);">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
             Clean, renewable energy source
           </li>
-          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:#e2e8f0;">
+          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:var(--text-body);">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
             25+ year panel lifespan
           </li>
-          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:#e2e8f0;">
+          <li style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem; color:var(--text-body);">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
             Pays for itself in 3-5 years
           </li>
-          <li style="display:flex; align-items:center; gap:0.75rem; color:#e2e8f0;">
+          <li style="display:flex; align-items:center; gap:0.75rem; color:var(--text-body);">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="#f59e0b"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
             Increases property value
           </li>
@@ -824,7 +823,7 @@
 </section>
 
 <!-- Certification Badges -->
-<section class="certifications section" style="padding:4rem 0;background:linear-gradient(135deg,rgba(10,10,15,0.98),rgba(15,15,25,0.98));border-top:1px solid rgba(212,175,55,0.1);">
+<section class="certifications section" style="padding:4rem 0;background:var(--bg-secondary);border-top:1px solid var(--border-color);">
   <div class="section-container">
     <div class="section-header reveal" style="margin-bottom:2.5rem;">
       <span class="section-label">Accreditations</span>
@@ -832,49 +831,49 @@
       <p class="section-subtitle">SolarYoot meets Australia's highest standards for solar installation and retail</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto;">
-      <div class="reveal reveal-delay-1" style="text-align:center;padding:2rem 1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,55,0.15);border-radius:12px;transition:border-color 0.3s;">
-        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(212,175,55,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div class="reveal reveal-delay-1" style="text-align:center;padding:2rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:var(--card-shadow);transition:border-color 0.3s;">
+        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(245,158,11,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        <h4 style="color:#fff;font-size:1rem;margin-bottom:0.4rem;">CEC Accredited Installer</h4>
-        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.4;">Clean Energy Council accredited for safe, compliant solar installations</p>
+        <h4 style="color:var(--text-primary);font-size:1rem;margin-bottom:0.4rem;">CEC Accredited Installer</h4>
+        <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.4;">Clean Energy Council accredited for safe, compliant solar installations</p>
       </div>
-      <div class="reveal reveal-delay-2" style="text-align:center;padding:2rem 1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,55,0.15);border-radius:12px;transition:border-color 0.3s;">
-        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(212,175,55,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="reveal reveal-delay-2" style="text-align:center;padding:2rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:var(--card-shadow);transition:border-color 0.3s;">
+        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(245,158,11,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
         </div>
-        <h4 style="color:#fff;font-size:1rem;margin-bottom:0.4rem;">New Energy Tech Approved Seller</h4>
-        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.4;">Verified retailer under Australia's New Energy Tech Consumer Code</p>
+        <h4 style="color:var(--text-primary);font-size:1rem;margin-bottom:0.4rem;">New Energy Tech Approved Seller</h4>
+        <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.4;">Verified retailer under Australia's New Energy Tech Consumer Code</p>
       </div>
-      <div class="reveal reveal-delay-3" style="text-align:center;padding:2rem 1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,55,0.15);border-radius:12px;transition:border-color 0.3s;">
-        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(212,175,55,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <div class="reveal reveal-delay-3" style="text-align:center;padding:2rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:var(--card-shadow);transition:border-color 0.3s;">
+        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(245,158,11,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </div>
-        <h4 style="color:#fff;font-size:1rem;margin-bottom:0.4rem;">Clean Energy Council Member</h4>
-        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.4;">Proud member of Australia's peak body for clean energy</p>
+        <h4 style="color:var(--text-primary);font-size:1rem;margin-bottom:0.4rem;">Clean Energy Council Member</h4>
+        <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.4;">Proud member of Australia's peak body for clean energy</p>
       </div>
-      <div class="reveal reveal-delay-4" style="text-align:center;padding:2rem 1.5rem;background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,55,0.15);border-radius:12px;transition:border-color 0.3s;">
-        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(212,175,55,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="reveal reveal-delay-4" style="text-align:center;padding:2rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;box-shadow:var(--card-shadow);transition:border-color 0.3s;">
+        <div style="width:56px;height:56px;margin:0 auto 1rem;background:rgba(245,158,11,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         </div>
-        <h4 style="color:#fff;font-size:1rem;margin-bottom:0.4rem;">Master Electricians Australia</h4>
-        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.4;">Licensed and endorsed by Master Electricians Australia</p>
+        <h4 style="color:var(--text-primary);font-size:1rem;margin-bottom:0.4rem;">Master Electricians Australia</h4>
+        <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.4;">Licensed and endorsed by Master Electricians Australia</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Featured In -->
-<section class="featured-in" style="padding:3rem 0;background:rgba(10,10,15,0.95);border-top:1px solid rgba(255,255,255,0.05);">
+<section class="featured-in" style="padding:3rem 0;background:var(--bg-primary);border-top:1px solid var(--border-color);">
   <div class="section-container">
     <div style="text-align:center;">
-      <p style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem;">As Featured In</p>
+      <p style="color:var(--text-faint);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem;">As Featured In</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2rem 3rem;">
-        <span style="color:rgba(255,255,255,0.3);font-size:1.1rem;font-weight:600;letter-spacing:1px;">Solar Quotes</span>
-        <span style="color:rgba(255,255,255,0.3);font-size:1.1rem;font-weight:600;letter-spacing:1px;">One Step Off The Grid</span>
-        <span style="color:rgba(255,255,255,0.3);font-size:1.1rem;font-weight:600;letter-spacing:1px;">Renew Economy</span>
-        <span style="color:rgba(255,255,255,0.3);font-size:1.1rem;font-weight:600;letter-spacing:1px;">PV Magazine Australia</span>
-        <span style="color:rgba(255,255,255,0.3);font-size:1.1rem;font-weight:600;letter-spacing:1px;">Solar Choice</span>
+        <span style="color:var(--text-faint);font-size:1.1rem;font-weight:600;letter-spacing:1px;opacity:0.6;">Solar Quotes</span>
+        <span style="color:var(--text-faint);font-size:1.1rem;font-weight:600;letter-spacing:1px;opacity:0.6;">One Step Off The Grid</span>
+        <span style="color:var(--text-faint);font-size:1.1rem;font-weight:600;letter-spacing:1px;opacity:0.6;">Renew Economy</span>
+        <span style="color:var(--text-faint);font-size:1.1rem;font-weight:600;letter-spacing:1px;opacity:0.6;">PV Magazine Australia</span>
+        <span style="color:var(--text-faint);font-size:1.1rem;font-weight:600;letter-spacing:1px;opacity:0.6;">Solar Choice</span>
       </div>
     </div>
   </div>
