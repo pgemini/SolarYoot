@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /images/.gitkeep
+
+Sitemap: https://www.solaryoot.com.au/sitemap.xml

@@ -1,0 +1,10 @@
+{
+  "name": "SolarYoot - Solar Panel Installation Brisbane",
+  "short_name": "SolarYoot",
+  "description": "Brisbane & Sunshine Coast's trusted solar installation company",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f59e0b",
+  "icons": [{"src": "favicon.svg", "sizes": "any", "type": "image/svg+xml"}]
+}
