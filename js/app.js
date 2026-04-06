@@ -212,14 +212,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           form.style.display = 'none';
           formSuccess.classList.add('active');
-          // Scroll to success message on mobile
           if (isMobile) formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
-          btn.textContent = 'Error - Try Again';
-          btn.disabled = false;
+          response.text().then(text => {
+            console.error('Form error:', response.status, text);
+            if (response.status === 403 || response.status === 401) {
+              btn.textContent = 'Check email to activate form';
+              alert('FormSubmit needs activation! Check info@solaryoot.com inbox (and spam) for a verification email from FormSubmit.co and click the link. Then try submitting again.');
+            } else {
+              btn.textContent = 'Error - Try Again';
+            }
+            btn.disabled = false;
+          });
         }
-      }).catch(() => {
-        btn.textContent = 'Error - Try Again';
+      }).catch((err) => {
+        console.error('Form network error:', err);
+        btn.textContent = 'Network Error - Try Again';
         btn.disabled = false;
       });
     });
