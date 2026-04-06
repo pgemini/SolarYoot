@@ -52,7 +52,7 @@
   <text x="115" y="164" fill="#f59e0b" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">CEC APPROVED RETAILER</text>
   <!-- Logo -->
   <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800">
-    <tspan fill="url(#gold)">Solar</tspan><tspan fill="#ffffff" font-weight="300">Yoot</tspan>
+    <tspan fill="#ffffff">Solar</tspan><tspan fill="#f59e0b" font-weight="800"> Yoot</tspan>
   </text>
   <!-- Tagline -->
   <text x="80" y="300" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Premium Solar Solutions</text>
