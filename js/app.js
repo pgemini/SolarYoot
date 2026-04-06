@@ -5,8 +5,8 @@
 // ---- Theme Toggle (runs before DOMContentLoaded to prevent flash) ----
 (function() {
   const saved = localStorage.getItem('solaryoot-theme');
-  if (saved === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
   }
 })();
 
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'light' ? 'dark' : 'light';
-      if (next === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
       } else {
         document.documentElement.removeAttribute('data-theme');
       }
