@@ -399,7 +399,7 @@ img, video, iframe {
   letter-spacing: 1px;
 }
 
-/* Hero Visual - Image */
+/* Hero Visual */
 .hero-visual {
   position: relative;
   display: flex;
@@ -407,16 +407,56 @@ img, video, iframe {
   align-items: center;
 }
 
-.hero-image {
-  width: 100%;
-  max-width: 580px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(245, 158, 11, 0.08);
-  animation: heroImageFloat 6s ease-in-out infinite;
+.solar-orbit {
+  width: 400px;
+  height: 400px;
+  position: relative;
 }
 
-@keyframes heroImageFloat {
-  0%, 100% { transform: translateY(0); }
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  animation: rotate 20s linear infinite;
+}
+
+.orbit-ring:nth-child(1) { inset: 0; }
+.orbit-ring:nth-child(2) { inset: 40px; animation-duration: 15s; animation-direction: reverse; border-color: rgba(14, 165, 233, 0.12); }
+.orbit-ring:nth-child(3) { inset: 80px; animation-duration: 25s; }
+
+.orbit-ring::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--solar-gold);
+  border-radius: 50%;
+  top: 50%;
+  left: -5px;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+.orbit-ring:nth-child(2)::before { background: var(--solar-blue); box-shadow: 0 0 15px rgba(14, 165, 233, 0.4); }
+
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.sun-core {
+  position: absolute;
+  inset: 110px;
+  background: radial-gradient(circle, var(--solar-gold), var(--solar-orange));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.15);
+  animation: sunPulse 4s ease-in-out infinite;
+}
+
+.sun-core svg { width: 70px; height: 70px; fill: #fff; }
+
+@keyframes sunPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.15); }
+  50% { box-shadow: 0 0 60px rgba(245, 158, 11, 0.5), 0 0 120px rgba(245, 158, 11, 0.25); }
   50% { transform: translateY(-12px); }
 }
 
