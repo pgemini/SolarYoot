@@ -3,7 +3,7 @@
    Modern Solar Energy Website
    ============================================ */
 
-/* CSS Variables */
+/* CSS Variables - Dark Theme (default) */
 :root {
   --solar-gold: #f59e0b;
   --solar-gold-light: #fbbf24;
@@ -17,6 +17,42 @@
   --solar-teal: #14b8a6;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
+
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-body: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+  --logo-text: #ffffff;
+  --nav-bg-scrolled: rgba(2, 6, 23, 0.95);
+  --hero-bg: linear-gradient(135deg, #020617 0%, #0c1220 50%, #111827 100%);
+  --section-alt-bg: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --text-primary: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --logo-text: #0f172a;
+  --nav-bg-scrolled: rgba(248, 250, 252, 0.95);
+  --hero-bg: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+  --section-alt-bg: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --solar-dark: #0f172a;
+  --solar-darker: #f8fafc;
+  --solar-gray: #e2e8f0;
 }
 
 /* Base Reset & Smooth Scroll */
@@ -30,13 +66,14 @@ html {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--solar-darker);
-  color: #e2e8f0;
+  background: var(--bg-primary);
+  color: var(--text-body);
   line-height: 1.7;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
   word-break: break-word;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Global overflow prevention for media and tables */
@@ -2760,4 +2797,445 @@ a.service-card:hover .service-link {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
   }
+}
+
+/* ============================================
+   Theme Toggle Button
+   ============================================ */
+.theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--solar-gold);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2);
+}
+
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  position: absolute;
+}
+
+/* Dark mode: show sun icon (click to go light) */
+.theme-toggle .icon-sun {
+  stroke: var(--solar-gold);
+  fill: none;
+  stroke-width: 2;
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle .icon-moon {
+  stroke: var(--solar-gold);
+  fill: none;
+  stroke-width: 2;
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+/* Light mode: show moon icon (click to go dark) */
+[data-theme="light"] .theme-toggle .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+  }
+  .theme-toggle svg { width: 18px; height: 18px; }
+}
+
+/* ============================================
+   Light Theme Overrides
+   ============================================ */
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background: var(--nav-bg-scrolled);
+  border-bottom-color: var(--border-color);
+  box-shadow: 0 2px 20px var(--shadow-color);
+}
+
+[data-theme="light"] .nav-logo {
+  color: var(--logo-text);
+}
+
+[data-theme="light"] .nav-links a {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .nav-links a:hover {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .nav-cta {
+  color: #fff !important;
+}
+
+[data-theme="light"] .hero {
+  background: var(--hero-bg);
+}
+
+[data-theme="light"] .hero h1 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .hero-description {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .hero-badge {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+[data-theme="light"] .hero-stat h3 {
+  color: var(--solar-gold-dark);
+}
+
+[data-theme="light"] .hero-stat p {
+  color: var(--text-faint);
+}
+
+[data-theme="light"] .hero-glow {
+  opacity: 0.06;
+}
+
+[data-theme="light"] .hero-bg-grid {
+  background-image:
+    linear-gradient(rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 158, 11, 0.05) 1px, transparent 1px);
+}
+
+[data-theme="light"] .section-title {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .section-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .partners {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .partner-logo {
+  background: #fff;
+  border-color: var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+[data-theme="light"] .service-card {
+  background: #fff;
+  border-color: var(--border-color);
+  box-shadow: 0 2px 12px var(--shadow-color);
+}
+
+[data-theme="light"] .service-card:hover {
+  background: #fff;
+  box-shadow: 0 12px 40px var(--shadow-color);
+}
+
+[data-theme="light"] .service-card h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .service-card p {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .service-icon {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="light"] .about {
+  background: var(--section-alt-bg);
+}
+
+[data-theme="light"] .about-text {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .stat-card {
+  background: #fff;
+  border-color: var(--border-color);
+  box-shadow: 0 2px 12px var(--shadow-color);
+}
+
+[data-theme="light"] .stat-label {
+  color: var(--text-faint);
+}
+
+[data-theme="light"] .about-features li {
+  color: var(--text-body);
+}
+
+[data-theme="light"] .why-card {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .why-card h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .why-card p {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .packages {
+  background: var(--section-alt-bg);
+}
+
+[data-theme="light"] .package-card {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .package-card.featured {
+  border-color: var(--solar-gold);
+  background: rgba(245, 158, 11, 0.02);
+}
+
+[data-theme="light"] .package-name {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .package-desc {
+  color: var(--text-muted);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .package-features li {
+  color: var(--text-body);
+}
+
+[data-theme="light"] .process-step {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .process-step h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .process-step p {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .testimonial-card {
+  background: #fff;
+  border-color: var(--border-color);
+  box-shadow: 0 2px 12px var(--shadow-color);
+}
+
+[data-theme="light"] .testimonial-text {
+  color: var(--text-body);
+}
+
+[data-theme="light"] .author-name {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .author-location {
+  color: var(--text-faint);
+}
+
+[data-theme="light"] .enquiry {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .enquiry-form {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .form-group label {
+  color: var(--text-body);
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select,
+[data-theme="light"] .form-group textarea {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .contact-info h3,
+[data-theme="light"] .contact-detail h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .contact-detail p,
+[data-theme="light"] .contact-detail a {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .contact-icon {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="light"] .faq-question {
+  color: var(--text-primary);
+  background: #fff;
+}
+
+[data-theme="light"] .faq-answer-inner {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .footer {
+  background: #0f172a;
+  color: #94a3b8;
+}
+
+[data-theme="light"] .footer .nav-logo {
+  color: #fff;
+}
+
+[data-theme="light"] .footer h4 {
+  color: #fff;
+}
+
+[data-theme="light"] .footer-links a {
+  color: #94a3b8;
+}
+
+[data-theme="light"] .page-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f3460 100%);
+}
+
+[data-theme="light"] .page-cta {
+  background: rgba(245, 158, 11, 0.05);
+}
+
+[data-theme="light"] .page-cta h2 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .sidebar-cta {
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+[data-theme="light"] .sidebar-card {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .sidebar-card h4 {
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .sidebar-facts li span {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .process-item {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .process-item h4 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .comparison-table th {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="light"] .comparison-table td {
+  border-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .comparison-table td strong {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .product-card {
+  background: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .service-main-content h2,
+[data-theme="light"] .service-main-content h3 {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .service-main-content p,
+[data-theme="light"] .lead-text {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .content-list li {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .content-list li strong {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .mobile-toggle span {
+  background: var(--text-primary);
+}
+
+[data-theme="light"] ::selection {
+  background: var(--solar-gold);
+  color: #fff;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+/* Smooth transitions for theme switch */
+[data-theme="light"] .service-card,
+[data-theme="light"] .stat-card,
+[data-theme="light"] .why-card,
+[data-theme="light"] .package-card,
+[data-theme="light"] .testimonial-card,
+[data-theme="light"] .partner-logo,
+[data-theme="light"] .sidebar-card,
+[data-theme="light"] .process-item,
+[data-theme="light"] .product-card,
+[data-theme="light"] .faq-question {
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
 }

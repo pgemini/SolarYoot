@@ -2,9 +2,32 @@
    SolarYoot - Main JavaScript
    ============================================ */
 
+// ---- Theme Toggle (runs before DOMContentLoaded to prevent flash) ----
+(function() {
+  const saved = localStorage.getItem('solaryoot-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const isMobile = window.innerWidth <= 768;
+
+  // ---- Theme Toggle ----
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      if (next === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      localStorage.setItem('solaryoot-theme', next);
+    });
+  }
 
   // ---- Navbar Scroll Effect ----
   const navbar = document.querySelector('.navbar');
