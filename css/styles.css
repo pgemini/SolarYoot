@@ -35,29 +35,6 @@
   color-scheme: light;
 }
 
-/* Dark Theme (toggle) */
-[data-theme="dark"] {
-  --solar-darker: #020617;
-  --solar-gray: #1e293b;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-
-  --bg-primary: #020617;
-  --bg-secondary: #0f172a;
-  --bg-card: rgba(255, 255, 255, 0.05);
-  --border-color: rgba(255, 255, 255, 0.1);
-  --text-primary: #ffffff;
-  --text-body: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-faint: #64748b;
-  --logo-text: #ffffff;
-  --logo-accent: var(--solar-gold);
-  --nav-bg-scrolled: rgba(2, 6, 23, 0.95);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  --card-hover-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  color-scheme: dark;
-}
 
 /* Base Reset & Smooth Scroll */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -112,7 +89,10 @@ img, video, iframe {
               padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
               border-bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
 }
 
 .navbar.scrolled {
@@ -2808,172 +2788,3 @@ a.service-card:hover .service-link {
   }
 }
 
-/* ============================================
-   Theme Toggle Button
-   ============================================ */
-.theme-toggle {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 2px solid var(--border-color);
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  cursor: pointer;
-  z-index: 9990;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px var(--shadow-color);
-}
-
-.theme-toggle:hover {
-  transform: scale(1.1);
-  border-color: var(--solar-gold);
-  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2);
-}
-
-.theme-toggle svg {
-  width: 22px;
-  height: 22px;
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-
-.theme-toggle .icon-sun,
-.theme-toggle .icon-moon {
-  position: absolute;
-}
-
-/* Light mode (default): show moon icon (click to go dark) */
-.theme-toggle .icon-sun {
-  stroke: var(--solar-gold);
-  fill: none;
-  stroke-width: 2;
-  opacity: 0;
-  transform: rotate(90deg);
-}
-
-.theme-toggle .icon-moon {
-  stroke: var(--solar-gold);
-  fill: none;
-  stroke-width: 2;
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-/* Dark mode: show sun icon (click to go light) */
-[data-theme="dark"] .theme-toggle .icon-sun {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-[data-theme="dark"] .theme-toggle .icon-moon {
-  opacity: 1;
-  transform: rotate(0deg);
-}
-
-@media (max-width: 768px) {
-  .theme-toggle {
-    bottom: 1.25rem;
-    right: 1.25rem;
-    width: 44px;
-    height: 44px;
-  }
-  .theme-toggle svg { width: 18px; height: 18px; }
-}
-
-/* ============================================
-   Dark Theme Overrides (toggle)
-   ============================================ */
-[data-theme="dark"] {
-  color-scheme: dark;
-}
-
-[data-theme="dark"] .navbar.scrolled {
-  background: var(--nav-bg-scrolled);
-  border-bottom-color: var(--border-color);
-}
-
-[data-theme="dark"] .hero {
-  background: linear-gradient(135deg, #020617 0%, #0c1220 50%, #111827 100%);
-}
-
-[data-theme="dark"] .hero-bg-grid {
-  background-image:
-    linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
-}
-
-[data-theme="dark"] .partners {
-  background: linear-gradient(180deg, #020617 0%, rgba(15, 23, 42, 0.5) 100%);
-}
-
-[data-theme="dark"] .partner-logo {
-  box-shadow: none;
-}
-
-[data-theme="dark"] .service-card {
-  box-shadow: none;
-}
-
-[data-theme="dark"] .service-card:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .stat-card {
-  box-shadow: none;
-}
-
-[data-theme="dark"] .about {
-  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
-}
-
-[data-theme="dark"] .testimonial-card {
-  box-shadow: none;
-}
-
-[data-theme="dark"] .enquiry {
-  background: #0f172a;
-}
-
-[data-theme="dark"] .footer {
-  background: #020617;
-  border-top-color: rgba(255,255,255,0.05);
-}
-
-[data-theme="dark"] .nav-links.active {
-  background: #020617;
-}
-
-[data-theme="dark"] .mobile-nav-link {
-  border-color: rgba(255,255,255,0.06);
-}
-
-[data-theme="dark"] ::selection {
-  color: var(--solar-dark);
-}
-
-[data-theme="dark"] ::-webkit-scrollbar-track {
-  background: #020617;
-}
-
-[data-theme="dark"] .process-step {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .page-cta {
-  background: rgba(245, 158, 11, 0.05);
-  border-color: rgba(245, 158, 11, 0.15);
-}
-
-/* Transitions for smooth theme switching */
-.service-card, .stat-card, .why-card, .package-card,
-.testimonial-card, .partner-logo, .sidebar-card,
-.process-item, .product-card, .faq-question, .process-step {
-  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-}
