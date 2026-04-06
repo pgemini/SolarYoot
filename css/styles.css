@@ -2879,3 +2879,78 @@ a.service-card:hover .service-link {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   Instagram Section
+   ============================================ */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+
+.insta-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.insta-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.insta-item:hover img {
+  transform: scale(1.08);
+}
+
+.insta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.insta-item:hover .insta-overlay {
+  opacity: 1;
+}
+
+.insta-follow {
+  background: var(--bg-card);
+  border: 2px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.insta-follow:hover {
+  border-color: #e6683c;
+}
+
+@media (max-width: 768px) {
+  .insta-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .insta-item { border-radius: 8px; }
+  .insta-overlay { opacity: 1; background: rgba(0,0,0,0.2); }
+  .insta-follow p { font-size: 0.75rem !important; }
+}
+
+@media (max-width: 480px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
