@@ -1724,9 +1724,10 @@ img, video, iframe {
     gap: 1rem;
   }
   .process-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 1rem;
     text-align: left;
     padding: 1.25rem;
     background: var(--glass-bg);
@@ -1739,9 +1740,10 @@ img, video, iframe {
     min-width: 44px;
     font-size: 1.1rem;
     margin: 0;
+    grid-row: 1 / 3;
   }
-  .process-step h3 { font-size: 1rem; margin-bottom: 0.3rem; }
-  .process-step p { font-size: 0.85rem; }
+  .process-step h3 { font-size: 1rem; margin-bottom: 0.25rem; align-self: end; }
+  .process-step p { font-size: 0.85rem; align-self: start; }
 
   /* Testimonials Mobile */
   .testimonials-grid {
