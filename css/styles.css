@@ -2954,3 +2954,8 @@ a.service-card:hover .service-link {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Footer logo - always white "Solar" on dark background */
+.footer .nav-logo {
+  color: #ffffff;
+}
