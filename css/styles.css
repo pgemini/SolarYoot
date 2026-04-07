@@ -3004,3 +3004,13 @@ a.service-card:hover .service-link {
     height: 300%;
   }
 }
+
+/* Service Areas Map - Responsive */
+@media (max-width: 768px) {
+  .service-areas div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  .service-areas iframe {
+    min-height: 250px;
+  }
+}
