@@ -552,6 +552,7 @@ img, video, iframe {
 .partner-fronius { color: #e74c3c; }
 .partner-aiko { color: #f97316; }
 .partner-saj { color: #e74c3c; }
+.partner-solax { color: #0066cc; }
 
 .approved-seller-badge {
   display: flex;
@@ -2958,4 +2959,48 @@ a.service-card:hover .service-link {
 /* Footer logo - always white "Solar" on dark background */
 .footer .nav-logo {
   color: #ffffff;
+}
+
+/* Hero YouTube Video Background */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-bg iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  min-width: 120%;
+  min-height: 120%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(248,250,252,0.8) 40%, rgba(255,255,255,0.75) 100%);
+  z-index: 1;
+}
+
+/* Ensure hero content is above video */
+.hero .hero-bg-grid,
+.hero .hero-glow,
+.hero .hero-particles,
+.hero .hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .hero-video-bg iframe {
+    width: 300%;
+    height: 300%;
+  }
 }
