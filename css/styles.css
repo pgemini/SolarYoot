@@ -2961,48 +2961,54 @@ a.service-card:hover .service-link {
   color: #ffffff;
 }
 
-/* Hero Video Background */
-.hero-video-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
+/* (Hero video removed - clean light hero)
 }
 
-.hero-video-bg video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
+/* ============================================
+   Vector Map - Glowing Dots
+   ============================================ */
+.area-map {
+  width: 100%;
   height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
+  border-radius: 16px;
+  background: #f0f4f8;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
-.hero-video-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(248,250,252,0.75) 40%, rgba(255,255,255,0.7) 100%);
-  z-index: 1;
+.map-dot {
+  animation: mapDotPulse 2s ease-in-out infinite;
 }
 
-/* Ensure hero content is above video */
-.hero .hero-bg-grid,
-.hero .hero-glow,
-.hero .hero-particles,
-.hero .hero-container {
-  position: relative;
-  z-index: 2;
+.glow-ring {
+  animation: glowRingPulse 2.5s ease-in-out infinite;
 }
 
-/* Service Areas Map - Responsive */
-@media (max-width: 768px) {
-  .service-areas div[style*="grid-template-columns: 1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
-  .service-areas iframe {
-    min-height: 250px;
-  }
+/* Stagger the animations for each dot */
+.map-dot:nth-of-type(2) { animation-delay: 0.3s; }
+.map-dot:nth-of-type(3) { animation-delay: 0.6s; }
+.map-dot:nth-of-type(4) { animation-delay: 0.9s; }
+.map-dot:nth-of-type(5) { animation-delay: 1.2s; }
+.map-dot:nth-of-type(6) { animation-delay: 1.5s; }
+.map-dot:nth-of-type(7) { animation-delay: 1.8s; }
+
+.glow-ring:nth-of-type(1) { animation-delay: 0.3s; }
+.glow-ring:nth-of-type(3) { animation-delay: 0.6s; }
+.glow-ring:nth-of-type(5) { animation-delay: 0.9s; }
+.glow-ring:nth-of-type(7) { animation-delay: 1.2s; }
+.glow-ring:nth-of-type(9) { animation-delay: 1.5s; }
+.glow-ring:nth-of-type(11) { animation-delay: 1.8s; }
+.glow-ring:nth-of-type(13) { animation-delay: 2.1s; }
+
+@keyframes mapDotPulse {
+  0%, 100% { r: 5; opacity: 1; }
+  50% { r: 7; opacity: 0.8; }
+}
+
+@keyframes glowRingPulse {
+  0%, 100% { r: 16; opacity: 0.6; }
+  50% { r: 22; opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-dot, .glow-ring { animation: none; }
 }
