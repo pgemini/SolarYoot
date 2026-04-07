@@ -620,86 +620,29 @@
   </div>
 </section>
 
-<!-- Service Areas - Vector Map -->
+<!-- Service Areas - Interactive Map -->
 <section class="service-areas section" style="background:var(--bg-secondary);">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <div class="section-container">
     <div class="section-header reveal">
       <span class="section-label">Where We Work</span>
       <h2 class="section-title">Our Service Areas</h2>
       <p class="section-subtitle">We install solar systems across Brisbane, Sunshine Coast, and surrounding regions</p>
     </div>
-    <div class="map-container reveal" style="max-width:900px;margin:0 auto;">
-      <svg viewBox="0 0 600 500" class="area-map" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="coastGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.15"/>
-            <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.05"/>
-          </linearGradient>
-          <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#e2e8f0"/>
-            <stop offset="100%" stop-color="#cbd5e1"/>
-          </linearGradient>
-        </defs>
-        <!-- Ocean -->
-        <rect width="600" height="500" fill="url(#coastGrad)" rx="16"/>
-        <!-- Land mass - simplified Brisbane/Moreton Bay region -->
-        <path d="M50,20 L400,20 Q420,20 420,40 L420,100 Q500,100 520,140 L540,200 Q550,240 520,260 L480,280 Q460,300 450,340 L430,400 Q420,440 380,460 L200,480 Q160,480 140,460 L80,380 Q60,340 50,280 L30,180 Q20,100 50,20 Z" fill="url(#landGrad)" stroke="#94a3b8" stroke-width="1" opacity="0.7"/>
-        <!-- Moreton Bay water -->
-        <path d="M420,100 Q460,120 470,160 L480,200 Q490,240 470,270 L450,290 Q440,300 430,280 L420,240 Q410,180 420,100 Z" fill="#bae6fd" opacity="0.3"/>
-        <!-- Roads/grid lines -->
-        <line x1="200" y1="50" x2="200" y2="400" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
-        <line x1="300" y1="50" x2="300" y2="400" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
-        <line x1="100" y1="200" x2="450" y2="200" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
-        <line x1="100" y1="300" x2="450" y2="300" stroke="#94a3b8" stroke-width="0.5" opacity="0.3"/>
-        <!-- Brisbane CBD marker -->
-        <rect x="245" y="265" width="60" height="20" rx="4" fill="#0f172a" opacity="0.8"/>
-        <text x="275" y="279" text-anchor="middle" font-size="9" fill="#fff" font-family="Inter,system-ui,sans-serif" font-weight="600">BRISBANE</text>
-        <!-- Glowing location dots -->
-        <!-- Sunshine Coast (north, coastal) -->
-        <circle cx="340" cy="60" r="20" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="340" cy="60" r="6" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="340" y="45" text-anchor="middle" font-size="10" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="600">Sunshine Coast</text>
-        <!-- Burpengary -->
-        <circle cx="280" cy="130" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="280" cy="130" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="280" y="118" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Burpengary</text>
-        <!-- Narangba -->
-        <circle cx="260" cy="165" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="260" cy="165" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="215" y="170" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Narangba</text>
-        <!-- Redcliffe (coastal, east) -->
-        <circle cx="390" cy="175" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="390" cy="175" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="390" y="163" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Redcliffe</text>
-        <!-- Mango Hill -->
-        <circle cx="340" cy="200" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="340" cy="200" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="340" y="220" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Mango Hill</text>
-        <!-- Aspley -->
-        <circle cx="280" cy="235" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="280" cy="235" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="280" y="253" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Aspley</text>
-        <!-- Ferny Hills (west) -->
-        <circle cx="180" cy="245" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="180" cy="245" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="140" y="240" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Ferny Hills</text>
-        <!-- Ashgrove -->
-        <circle cx="230" cy="280" r="16" fill="url(#dotGlow)" class="glow-ring"/>
-        <circle cx="230" cy="280" r="5" fill="#f59e0b" filter="url(#glow)" class="map-dot"/>
-        <text x="195" y="293" text-anchor="middle" font-size="9" fill="var(--text-primary)" font-family="Inter,system-ui,sans-serif" font-weight="500">Ashgrove</text>
-        <!-- Coverage area ring -->
-        <circle cx="275" cy="250" r="160" fill="none" stroke="#f59e0b" stroke-width="1" stroke-dasharray="6,4" opacity="0.25"/>
-        <circle cx="275" cy="250" r="120" fill="#f59e0b" opacity="0.03"/>
-      </svg>
-      <p style="text-align:center;margin-top:1.5rem;color:var(--text-muted);font-size:0.9rem;line-height:1.6;">Servicing all of Brisbane, Moreton Bay, Sunshine Coast &amp; surrounding areas. <a href="#enquiry" style="color:var(--solar-gold);font-weight:600;text-decoration:none;">Get in touch</a> for a free quote.</p>
+    <div class="reveal" style="max-width:1000px;margin:0 auto;">
+      <div id="service-map" style="height:500px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.08);border:1px solid var(--border-color);"></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:1.5rem;">
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--text-muted);">
+          <span style="width:10px;height:10px;background:#f59e0b;border-radius:50%;box-shadow:0 0 6px #f59e0b;"></span> Active Areas
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--text-muted);">
+          <span style="width:10px;height:10px;background:#0f172a;border-radius:50%;"></span> Head Office - Birtinya
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--text-muted);">
+          <span style="width:22px;height:2px;background:#f59e0b;opacity:0.4;border-radius:1px;"></span> Coverage Area
+        </span>
+      </div>
+      <p style="text-align:center;margin-top:1rem;color:var(--text-muted);font-size:0.9rem;">Servicing all of Brisbane, Moreton Bay, Sunshine Coast &amp; surrounding areas. <a href="#enquiry" style="color:var(--solar-gold);font-weight:600;text-decoration:none;">Get in touch</a> for a free quote.</p>
     </div>
   </div>
 </section>
@@ -1043,5 +986,92 @@
 </footer>
 
 <script src="js/app.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function() {
+  var mapEl = document.getElementById('service-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
+  var map = L.map('service-map', {
+    center: [-27.15, 152.95],
+    zoom: 10,
+    zoomControl: true,
+    scrollWheelZoom: false,
+    attributionControl: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Glowing pulse icon
+  var pulseIcon = L.divIcon({
+    className: 'map-pulse-marker',
+    html: '<div class="pulse-outer"></div><div class="pulse-inner"></div>',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
+  });
+
+  // HQ icon (larger, different color)
+  var hqIcon = L.divIcon({
+    className: 'map-hq-marker',
+    html: '<div class="hq-outer"></div><div class="hq-inner">HQ</div>',
+    iconSize: [36, 36],
+    iconAnchor: [18, 18]
+  });
+
+  var locations = [
+    { lat: -26.813, lng: 153.058, name: 'Burpengary', desc: 'Residential & Commercial Solar', installs: '40+' },
+    { lat: -27.204, lng: 153.000, name: 'Narangba', desc: 'Residential Solar Installations', installs: '35+' },
+    { lat: -27.435, lng: 152.979, name: 'Ashgrove', desc: 'Premium Residential Solar', installs: '25+' },
+    { lat: -27.404, lng: 152.936, name: 'Ferny Hills', desc: 'Residential Solar & Battery', installs: '30+' },
+    { lat: -27.364, lng: 153.014, name: 'Aspley', desc: 'Residential & Commercial Solar', installs: '50+' },
+    { lat: -27.228, lng: 153.115, name: 'Redcliffe', desc: 'Coastal Solar Installations', installs: '45+' },
+    { lat: -27.245, lng: 153.046, name: 'Mango Hill', desc: 'New Build Solar Systems', installs: '35+' },
+    { lat: -26.680, lng: 153.090, name: 'Sunshine Coast', desc: 'Full Solar Services', installs: '80+' }
+  ];
+
+  // Coverage area circle
+  L.circle([-27.25, 153.0], {
+    radius: 45000,
+    color: '#f59e0b',
+    fillColor: '#f59e0b',
+    fillOpacity: 0.04,
+    weight: 1.5,
+    opacity: 0.3,
+    dashArray: '8,6'
+  }).addTo(map);
+
+  // Add location markers
+  locations.forEach(function(loc) {
+    L.marker([loc.lat, loc.lng], { icon: pulseIcon })
+      .addTo(map)
+      .bindPopup(
+        '<div style="font-family:Inter,system-ui,sans-serif;padding:4px 0;">' +
+        '<strong style="font-size:14px;color:#0f172a;">' + loc.name + '</strong><br>' +
+        '<span style="color:#64748b;font-size:12px;">' + loc.desc + '</span><br>' +
+        '<span style="color:#f59e0b;font-weight:600;font-size:13px;">' + loc.installs + ' installs completed</span>' +
+        '</div>'
+      );
+  });
+
+  // Head Office marker
+  L.marker([-26.734, 153.116], { icon: hqIcon })
+    .addTo(map)
+    .bindPopup(
+      '<div style="font-family:Inter,system-ui,sans-serif;padding:4px 0;">' +
+      '<strong style="font-size:14px;color:#0f172a;">SolarYoot Head Office</strong><br>' +
+      '<span style="color:#64748b;font-size:12px;">Regatta 1 Business Centre<br>2 Innovation Pkwy, Birtinya QLD 4575</span><br>' +
+      '<a href="tel:1300462123" style="color:#f59e0b;font-weight:600;font-size:13px;text-decoration:none;">1300 462 123</a>' +
+      '</div>'
+    )
+    .openPopup();
+
+  // Enable scroll zoom on click
+  map.on('click', function() { map.scrollWheelZoom.enable(); });
+  map.on('mouseout', function() { map.scrollWheelZoom.disable(); });
+})();
+</script>
 </body>
 </html>
