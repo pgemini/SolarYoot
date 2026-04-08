@@ -993,7 +993,7 @@
   if (!mapEl || typeof L === 'undefined') return;
 
   var map = L.map('service-map', {
-    center: [-27.15, 152.95],
+    center: [-27.05, 153.05],
     zoom: 10,
     zoomControl: true,
     scrollWheelZoom: false,
@@ -1032,9 +1032,9 @@
     { lat: -26.680, lng: 153.090, name: 'Sunshine Coast', desc: 'Full Solar Services', installs: '80+' }
   ];
 
-  // Coverage area circle
-  L.circle([-27.25, 153.0], {
-    radius: 45000,
+  // Coverage area circle - centered to include HQ at Birtinya
+  L.circle([-27.05, 153.05], {
+    radius: 55000,
     color: '#f59e0b',
     fillColor: '#f59e0b',
     fillOpacity: 0.04,
