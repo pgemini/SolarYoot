@@ -3370,3 +3370,92 @@ a.service-card:hover .service-link {
 @media (max-width: 768px) {
   .showcase-video-grid { grid-template-columns: 1fr !important; }
 }
+
+/* ============================================
+   Video Carousel
+   ============================================ */
+.video-carousel { padding: 0 50px; }
+
+.video-carousel-track {
+  position: relative;
+  min-height: 450px;
+}
+
+.video-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.video-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  position: relative;
+}
+
+.video-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.video-carousel-btn:hover {
+  background: var(--solar-gold);
+  color: #fff;
+  border-color: var(--solar-gold);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.video-carousel-btn.prev { left: 0; }
+.video-carousel-btn.next { right: 0; }
+
+.video-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.video-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-color);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.video-dot.active {
+  background: var(--solar-gold);
+  width: 30px;
+  border-radius: 5px;
+}
+
+.video-dot:hover { background: var(--solar-gold); }
+
+@media (max-width: 768px) {
+  .video-carousel { padding: 0 10px; }
+  .video-carousel-btn { width: 36px; height: 36px; }
+  .video-carousel-btn svg { width: 20px; height: 20px; }
+  .video-carousel-btn.prev { left: -5px; }
+  .video-carousel-btn.next { right: -5px; }
+}
