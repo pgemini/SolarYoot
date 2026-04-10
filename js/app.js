@@ -380,3 +380,78 @@ shakeStyle.textContent = `
   }
 `;
 document.head.appendChild(shakeStyle);
+
+// ---- Sunlight Cursor Trail ----
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if ('ontouchstart' in window) return; // skip on mobile
+
+  var canvas = document.createElement('canvas');
+  canvas.id = 'sunlight-canvas';
+  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99999;';
+  document.body.appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var particles = [];
+  var mouseX = -100, mouseY = -100;
+
+  document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    // Spawn 2-3 particles per move
+    for (var i = 0; i < 2; i++) {
+      particles.push({
+        x: mouseX + (Math.random() - 0.5) * 12,
+        y: mouseY + (Math.random() - 0.5) * 12,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: Math.random() * 1.5 + 0.5, // fall downward like sunlight
+        size: Math.random() * 3 + 1.5,
+        life: 1,
+        decay: Math.random() * 0.025 + 0.015,
+        hue: Math.random() > 0.3 ? 42 : 35 // gold to warm amber
+      });
+    }
+    // Limit particles
+    if (particles.length > 80) particles.splice(0, particles.length - 80);
+  });
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life -= p.decay;
+
+      if (p.life <= 0) {
+        particles.splice(i, 1);
+        continue;
+      }
+
+      ctx.save();
+      ctx.globalAlpha = p.life * 0.7;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+
+      // Radial glow
+      var grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * p.life * 2);
+      grad.addColorStop(0, 'hsla(' + p.hue + ', 95%, 60%, ' + (p.life * 0.6) + ')');
+      grad.addColorStop(0.5, 'hsla(' + p.hue + ', 90%, 55%, ' + (p.life * 0.3) + ')');
+      grad.addColorStop(1, 'hsla(' + p.hue + ', 85%, 50%, 0)');
+      ctx.fillStyle = grad;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();

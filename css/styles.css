@@ -552,6 +552,7 @@ img, video, iframe {
 .partner-fronius { color: #e74c3c; }
 .partner-aiko { color: #f97316; }
 .partner-saj { color: #e74c3c; }
+.partner-solax { color: #0066cc; }
 
 .approved-seller-badge {
   display: flex;
@@ -2958,4 +2959,100 @@ a.service-card:hover .service-link {
 /* Footer logo - always white "Solar" on dark background */
 .footer .nav-logo {
   color: #ffffff;
+}
+
+/* (Hero video removed - clean light hero)
+}
+
+/* ============================================
+   Interactive Map - Leaflet Markers
+   ============================================ */
+#service-map {
+  z-index: 1;
+}
+
+/* Pulsing location marker */
+.map-pulse-marker {
+  background: none;
+  border: none;
+}
+
+.map-pulse-marker .pulse-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.25);
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+.map-pulse-marker .pulse-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
+  border: 2px solid #fff;
+}
+
+/* HQ marker */
+.map-hq-marker {
+  background: none;
+  border: none;
+}
+
+.map-hq-marker .hq-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.15);
+  animation: markerPulse 2.5s ease-in-out infinite;
+}
+
+.map-hq-marker .hq-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: Inter, system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(15, 23, 42, 0.4);
+  border: 2px solid #fff;
+}
+
+@keyframes markerPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Leaflet popup styling */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+@media (max-width: 768px) {
+  #service-map { height: 350px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-pulse-marker .pulse-outer,
+  .map-hq-marker .hq-outer { animation: none; opacity: 0.3; }
 }
