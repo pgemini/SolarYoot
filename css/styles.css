@@ -3365,3 +3365,8 @@ a.service-card:hover .service-link {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
 }
+
+/* Showcase video grid responsive */
+@media (max-width: 768px) {
+  .showcase-video-grid { grid-template-columns: 1fr !important; }
+}

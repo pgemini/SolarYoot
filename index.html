@@ -554,20 +554,22 @@
       <p class="section-subtitle">Every installation is a step towards a cleaner future. Here are some of the homes and businesses we've had the privilege of helping go solar.</p>
     </div>
 
-    <!-- Video Feature -->
-    <div class="showcase-video reveal" style="max-width:800px;margin:0 auto 3rem;">
-      <div style="position:relative;width:100%;padding-bottom:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
-        <iframe src="https://www.youtube.com/embed/QTvwJBU9QwM" title="SolarYoot - Solar Panel Installation Queensland" style="position:absolute;inset:0;width:100%;height:100%;border:0;" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+    <!-- Featured Video -->
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1000px;margin:0 auto 3rem;">
+      <div>
+        <div style="position:relative;width:100%;padding-bottom:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+          <iframe src="https://www.youtube.com/embed/QTvwJBU9QwM" title="SolarYoot - Solar Panel Installation Queensland" style="position:absolute;inset:0;width:100%;height:100%;border:0;" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p style="text-align:center;margin-top:0.75rem;color:var(--text-muted);font-size:0.85rem;">Our latest installation video</p>
       </div>
-      <p style="text-align:center;margin-top:1rem;color:var(--text-muted);font-size:0.9rem;font-style:italic;">Watch our recent drone footage from a Sunshine Coast installation</p>
-    </div>
-
-    <!-- Drone Video Clip -->
-    <div class="reveal" style="max-width:600px;margin:0 auto 3rem;">
-      <video autoplay muted loop playsinline style="width:100%;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
-        <source src="images/20260328_025649000_iOS.MP4" type="video/mp4">
-      </video>
-      <p style="text-align:center;margin-top:0.75rem;color:var(--text-muted);font-size:0.85rem;font-style:italic;">Drone flyover of our latest installation</p>
+      <div>
+        <div style="position:relative;width:100%;padding-bottom:56.25%;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+          <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <source src="images/20260328_025649000_iOS.MP4" type="video/mp4">
+          </video>
+        </div>
+        <p style="text-align:center;margin-top:0.75rem;color:var(--text-muted);font-size:0.85rem;">Drone flyover - Sunshine Coast</p>
+      </div>
     </div>
 
     <!-- Photo Gallery -->
@@ -580,9 +582,9 @@
         </div>
       </div>
       <div class="showcase-item reveal">
-        <img src="images/20260328_031909000_iOS.jpg" alt="Aerial drone view of solar panels - Narangba home" loading="lazy">
+        <img src="images/WhatsApp%20Image%202026-04-06%20at%209.27.29%20PM.jpeg" alt="Solar panel installation - Burpengary home" loading="lazy">
         <div class="showcase-caption">
-          <span class="showcase-location">Narangba</span>
+          <span class="showcase-location">Burpengary</span>
           <span class="showcase-system">8kW Hybrid</span>
         </div>
       </div>
@@ -594,7 +596,7 @@
         </div>
       </div>
       <div class="showcase-item reveal">
-        <img src="images/20260328_032401000_iOS.jpg" alt="Solar panel close-up installation - Redcliffe home" loading="lazy">
+        <img src="images/WhatsApp%20Image%202026-04-06%20at%209.29.51%20PM.jpeg" alt="Solar installation - Redcliffe home" loading="lazy">
         <div class="showcase-caption">
           <span class="showcase-location">Redcliffe</span>
           <span class="showcase-system">6.6kW System</span>
@@ -1001,7 +1003,7 @@
 
   var map = L.map('service-map', {
     center: [-27.05, 153.05],
-    zoom: 10,
+    zoom: 9,
     zoomControl: true,
     scrollWheelZoom: false,
     attributionControl: true
