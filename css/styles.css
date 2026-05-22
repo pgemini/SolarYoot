@@ -3459,3 +3459,49 @@ a.service-card:hover .service-link {
   .video-carousel-btn.prev { left: -5px; }
   .video-carousel-btn.next { right: -5px; }
 }
+
+/* ============================================
+   Hero Background Video
+   ============================================ */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(248, 250, 252, 0.72) 40%,
+    rgba(255, 255, 255, 0.68) 100%
+  );
+  z-index: 1;
+}
+
+.hero .hero-bg-grid,
+.hero .hero-glow,
+.hero .hero-particles,
+.hero .hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-bg video { display: none; }
+}
