@@ -3394,7 +3394,6 @@ a.service-card:hover .service-link {
 
 .video-carousel-track {
   position: relative;
-  min-height: 450px;
 }
 
 .video-slide {
@@ -3611,7 +3610,7 @@ a.service-card:hover .service-link {
 /* ============================================
    Reviews Slider
    ============================================ */
-.reviews-track { position: relative; min-height: 250px; }
+.reviews-track { position: relative; }
 
 .review-slide {
   position: absolute;
