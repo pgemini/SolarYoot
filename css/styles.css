@@ -3607,3 +3607,79 @@ a.service-card:hover .service-link {
   }
   .review-card { padding: 1.25rem; }
 }
+
+/* ============================================
+   Reviews Slider
+   ============================================ */
+.reviews-track { position: relative; min-height: 250px; }
+
+.review-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.review-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+
+.review-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all 0.3s;
+}
+
+.review-slider-btn:hover {
+  background: var(--solar-gold);
+  color: #fff;
+  border-color: var(--solar-gold);
+}
+
+.review-slider-btn.prev { left: 0; }
+.review-slider-btn.next { right: 0; }
+
+.review-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.review-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-color);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.review-dot.active {
+  background: var(--solar-gold);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .reviews-slider { padding: 0 35px !important; }
+  .review-slider-btn { width: 32px; height: 32px; }
+}

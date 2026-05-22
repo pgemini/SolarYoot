@@ -503,3 +503,34 @@ document.head.appendChild(shakeStyle);
     if (e.key === 'ArrowRight') nextBtn.click();
   });
 })();
+
+// ---- Review Slider ----
+(function() {
+  var slider = document.querySelector('.reviews-slider');
+  if (!slider) return;
+  var slides = slider.querySelectorAll('.review-slide');
+  var dots = slider.querySelectorAll('.review-dot');
+  var cur = 0;
+  var auto;
+
+  function show(i) {
+    slides.forEach(function(s,idx) { s.classList.toggle('active', idx === i); });
+    dots.forEach(function(d,idx) { d.classList.toggle('active', idx === i); });
+    cur = i;
+  }
+
+  slider.querySelector('.review-slider-btn.prev').addEventListener('click', function() {
+    show((cur - 1 + slides.length) % slides.length);
+    resetAuto();
+  });
+  slider.querySelector('.review-slider-btn.next').addEventListener('click', function() {
+    show((cur + 1) % slides.length);
+    resetAuto();
+  });
+  dots.forEach(function(d, i) {
+    d.addEventListener('click', function() { show(i); resetAuto(); });
+  });
+
+  function resetAuto() { clearInterval(auto); auto = setInterval(function() { show((cur+1)%slides.length); }, 5000); }
+  auto = setInterval(function() { show((cur+1)%slides.length); }, 5000);
+})();
