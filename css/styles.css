@@ -3673,7 +3673,7 @@ a.service-card:hover .service-link {
 }
 
 /* ============================================
-   Client Testimonial Shorts
+   Client Testimonial Video
    ============================================ */
 .client-testimonials {
   background:
@@ -3681,7 +3681,7 @@ a.service-card:hover .service-link {
     linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
-.testimonial-shorts-wrapper {
+.testimonial-video-wrapper {
   display: grid;
   grid-template-columns: minmax(260px, 360px) minmax(280px, 1fr);
   gap: 3rem;
@@ -3690,7 +3690,7 @@ a.service-card:hover .service-link {
   margin: 0 auto;
 }
 
-.testimonial-short-card {
+.testimonial-video-card {
   position: relative;
   padding: 0.75rem;
   border-radius: 32px;
@@ -3698,7 +3698,7 @@ a.service-card:hover .service-link {
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
 }
 
-.testimonial-short-card::before {
+.testimonial-video-card::before {
   content: '';
   position: absolute;
   inset: -1px;
@@ -3708,7 +3708,7 @@ a.service-card:hover .service-link {
   opacity: 0.6;
 }
 
-.testimonial-short-video {
+.testimonial-video-frame {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
@@ -3716,7 +3716,7 @@ a.service-card:hover .service-link {
   aspect-ratio: 547 / 972;
 }
 
-.testimonial-short-video iframe {
+.testimonial-video-frame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -3724,11 +3724,11 @@ a.service-card:hover .service-link {
   border: 0;
 }
 
-.testimonial-short-copy {
+.testimonial-video-copy {
   max-width: 520px;
 }
 
-.testimonial-short-kicker {
+.testimonial-video-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -3740,7 +3740,7 @@ a.service-card:hover .service-link {
   margin-bottom: 1rem;
 }
 
-.testimonial-short-kicker::before {
+.testimonial-video-kicker::before {
   content: '';
   width: 10px;
   height: 10px;
@@ -3749,14 +3749,14 @@ a.service-card:hover .service-link {
   box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.14);
 }
 
-.testimonial-short-copy h3 {
+.testimonial-video-copy h3 {
   color: var(--text-primary);
   font-size: clamp(1.75rem, 3vw, 2.6rem);
   line-height: 1.15;
   margin-bottom: 1rem;
 }
 
-.testimonial-short-copy p {
+.testimonial-video-copy p {
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.8;
@@ -3764,22 +3764,22 @@ a.service-card:hover .service-link {
 }
 
 @media (max-width: 768px) {
-  .testimonial-shorts-wrapper {
+  .testimonial-video-wrapper {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
   }
 
-  .testimonial-short-card {
+  .testimonial-video-card {
     width: min(100%, 340px);
     margin: 0 auto;
   }
 
-  .testimonial-short-copy {
+  .testimonial-video-copy {
     margin: 0 auto;
   }
 
-  .testimonial-short-kicker {
+  .testimonial-video-kicker {
     justify-content: center;
   }
 }
