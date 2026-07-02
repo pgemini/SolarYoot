@@ -3671,3 +3671,115 @@ a.service-card:hover .service-link {
   .reviews-slider { padding: 0 35px !important; }
   .review-slider-btn { width: 32px; height: 32px; }
 }
+
+/* ============================================
+   Client Testimonial Shorts
+   ============================================ */
+.client-testimonials {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(245, 158, 11, 0.12), transparent 28%),
+    linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.testimonial-shorts-wrapper {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(280px, 1fr);
+  gap: 3rem;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.testimonial-short-card {
+  position: relative;
+  padding: 0.75rem;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.45), rgba(249, 115, 22, 0.16));
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+}
+
+.testimonial-short-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--solar-gold), transparent 45%, var(--solar-orange));
+  opacity: 0.6;
+}
+
+.testimonial-short-video {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #000;
+  aspect-ratio: 547 / 972;
+}
+
+.testimonial-short-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.testimonial-short-copy {
+  max-width: 520px;
+}
+
+.testimonial-short-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--solar-gold-dark);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.testimonial-short-kicker::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--solar-gold);
+  box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.14);
+}
+
+.testimonial-short-copy h3 {
+  color: var(--text-primary);
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.testimonial-short-copy p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .testimonial-shorts-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .testimonial-short-card {
+    width: min(100%, 340px);
+    margin: 0 auto;
+  }
+
+  .testimonial-short-copy {
+    margin: 0 auto;
+  }
+
+  .testimonial-short-kicker {
+    justify-content: center;
+  }
+}
